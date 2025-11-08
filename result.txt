@@ -1,6 +1,9 @@
- θ (degrees): 29.999717
-  θ (radians): 0.523594
-  M:           0.030001
-  X:           54.998555
+θ (degrees): 29.999717
+θ (radians): 0.523594
+M:           0.030001
+X:           54.998555
 
 Final Error (Mean L1 Distance): 0.02672640
+
+LaTeX format result:
+\left(t*\cos(0.523594)-e^{0.030001\left|t\right|}\cdot\sin(0.3t)\sin(0.523594)\ +54.998555,42+\ t*\sin(0.523594)+e^{0.030001\left|t\right|}\cdot\sin(0.3t)\cos(0.523594)\right)
