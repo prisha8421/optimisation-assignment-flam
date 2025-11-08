@@ -34,7 +34,9 @@ The L1 metric was chosen intentionally, since it is robust to outliers and direc
 For every predicted point, its L1 distance to all actual points was calculated, and only the minimum (closest) one was considered.
 The formula used:
 
-Loss_L1 = (1/N) * sum_{i=1 to N} ( min_{1 <= j <= N} ( |x_pred,i - x_actual,j| + |y_pred,i - y_actual,j| ) )
+$$
+\text{Loss}_{L1} = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right)
+$$
 
 #**Step 4 – Defining the Model Equation**
 
