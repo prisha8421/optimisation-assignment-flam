@@ -19,8 +19,6 @@ The optimisation is performed such that the mean L1 distance (Manhattan distance
 Step 1 – Data Loading and Understanding
 
 The dataset xy_data.csv containing observed x and 𝑦 coordinates was loaded using Pandas.
-
-
 The loaded values were stored as arrays actual_x and actual_y, and combined into coordinate pairs (P_actual) for direct comparison with predicted curve points.
 
 Step 2 – Defining Parameter Range (t-values)
@@ -29,7 +27,6 @@ Explanation:
 
 A set of t values was uniformly sampled between 6 and 60. 
 The number of points sampled (1500) matches the number of points in the dataset. 
-
 This array of t values is used to generate the predicted curve's point cloud. Since the original data is an unordered, there is no 1-to-1 correspondence between this t array and the xy_data.
 
 Step 3 – Formulating the Objective (Cost) Function
@@ -38,7 +35,6 @@ Explanation:
 
 The optimization objective was to minimize the mean L1 distance between predicted and actual curve points.
 The L1 metric was chosen intentionally, since it is robust to outliers and directly measures absolute deviation.
-
 For every predicted point, its L1 distance to all actual points was calculated, and only the minimum (closest) one was considered.
 The formula used:
 
@@ -61,7 +57,6 @@ Step 5 – Optimization Technique
 Explanation:
 
 The Differential Evolution algorithm (from scipy.optimize) was chosen because it performs global optimization efficiently for nonlinear equations.
-
 It evolves multiple candidate solutions using mutation, recombination, and selection to minimize the cost function.
 
 The parameter search bounds were:
@@ -81,15 +76,13 @@ Explanation:
 The optimizer iteratively minimized the mean L1 distance.
 
 A population size of 10 and tolerance of 10^-4 were used for balanced accuracy and runtime.
-
-The algorithm displayed progress (disp=True) and returned the best-fit parameters once convergence was achieved.
+The algorithm displayed progress and returned the best-fit parameters once convergence was achieved.
 
 Step 7 – Obtaining and Presenting Results
 
 Explanation:
 
 Upon successful optimization, the optimal values of unknowns θ,M,X were printed in both radians and degrees
-
 The final minimized Mean L1 Distance and optimized equation was reported as the performance metric.
 
 Step 8 – Visualization and Verification
@@ -119,13 +112,13 @@ https://www.desmos.com/calculator/3y9swdeuff
 
 This solution was developed in Python and relies on several key open-source libraries and algorithms.
 
-Pandas: Used for loading and parsing the initial xy_data.csv file.
+Pandas
 
-NumPy: Used for all numerical operations, array manipulations, and mathematical functions.
+NumPy
 
-SciPy: Used for its powerful optimization routines.
+SciPy
 
-Matplotlib: Used for the final visual verification by plotting the original data against the predicted curve.
+Matplotlib
 
 Differential Evolution Algorithm: SciPy’s Differential Evolution algorithm was used for global optimization due to its robustness in non-linear, non-convex problems.
 
