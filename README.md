@@ -127,7 +127,7 @@ SciPy
 
 Matplotlib
 
-Differential Evolution Algorithm: SciPy’s Differential Evolution algorithm was used for global optimization due to its robustness in non-linear, non-convex problems.
+Differential Evolution Algorithm:  SciPy’s Differential Evolution algorithm was used for global optimization due to its robustness in non-linear, non-convex problems.
 
 ## **References:-** 
 
