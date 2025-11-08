@@ -1,0 +1,6 @@
+ θ (degrees): 29.999717
+  θ (radians): 0.523594
+  M:           0.030001
+  X:           54.998555
+
+Final Error (Mean L1 Distance): 0.02672640
