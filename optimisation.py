@@ -54,7 +54,7 @@ def cost_function(params):
     mean_l1_error = total_l1 / len(P_pred)
     return mean_l1_error
 
-# --- 4. Run Optimiser ---
+# Optimiser
 print("\n Starting global optimisation...")
 
 theta_min_rad = 0 * np.pi / 180
