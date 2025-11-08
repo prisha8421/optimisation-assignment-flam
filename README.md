@@ -1,4 +1,5 @@
-R&D/AI Assignment - Flam
+**R&D/AI Assignment - Flam**
+
 
 This repository contains my solution for the Research and Development / AI Assignment.
 The goal of this task was to estimate unknown parameters in a given parametric equation by minimizing the L1 distance between the predicted and actual data points.
@@ -6,8 +7,8 @@ The goal of this task was to estimate unknown parameters in a given parametric e
 #Objective:-
 To determine the unknown parameters in the following equations:
 
-x=\left(t*\cos(\theta)-e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta)\ +X \right )
-y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\right)
+**x=\left(t*\cos(\theta)-e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta)\ +X \right )**
+**y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\right)**
 The optimisation is performed such that the mean L1 distance (Manhattan distance) between the predicted and observed coordinates is minimized.
 
 #Explanation & Steps :
@@ -32,14 +33,16 @@ The L1 metric was chosen intentionally, as per the rubric requirement, since it 
 
 For every predicted point, its L1 distance to all actual points was calculated, and only the minimum (closest) one was considered.
 The formula used:
-\text{Error}_{\text{L1}} = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right) [LaTeX format]
+$$
+\text{Error}_{\text{L1}} = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right)
+$$ [LaTeX format]
 
 Step 4 – Defining the Model Equation
 
 Explanation:
 The given parametric equation was implemented in terms of 
-x = t*\cos(\theta) - e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta) + X
-y = 42 + t*\sin(\theta) + e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)
+$$ x = t*\cos(\theta) - e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta) + X $$
+$$ y = 42 + t*\sin(\theta) + e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta) $$
 
 These equations were used inside the cost function to generate predicted x andy points for comparison with the dataset.
 
@@ -50,7 +53,7 @@ The Differential Evolution algorithm (from scipy.optimize) was chosen because it
 It evolves multiple candidate solutions using mutation, recombination, and selection to minimize the cost function.
 
 The parameter search bounds were:
-θ: 0° to 50° (in radians)
+θ: 0° to 50° (converted to radians during optimisation)
 M: -0.05 to 0.05
 X: 0 to 100
 
@@ -79,13 +82,35 @@ To verify correctness, the predicted curve (in red) and original data (in blue) 
 A close visual overlap confirmed that the optimizer successfully minimized the L1 distance and captured the data pattern effectively.
 
 #Results:-
-\left(t*\cos(0.523594)-e^{0.030001\left|t\right|}\cdot\sin(0.3t)\sin(0.523594)\ +54.998555,42+\ t*\sin(0.523594)+e^{0.030001\left|t\right|}\cdot\sin(0.3t)\cos(0.523594)\right)
 
-$\theta = 0.523594 $
-$M = 0.030001 $
-$X = 54.998555 $
+**\left(t*\cos(0.523594)-e^{0.030001\left|t\right|}\cdot\sin(0.3t)\sin(0.523594)\ +54.998555,42+\ t*\sin(0.523594)+e^{0.030001\left|t\right|}\cdot\sin(0.3t)\cos(0.523594)\right)**
+
+**θ = 0.523594**
+**M = 0.030001**
+**X = 54.998555**
+
 Desmos representation of the final result :
 https://www.desmos.com/calculator/3y9swdeuff
+
+#Tools:-
+
+This solution was developed in Python and relies on several key open-source libraries and algorithms.
+
+Pandas: Used for loading and parsing the initial xy_data.csv file.
+NumPy: Used for all numerical operations, array manipulations, and mathematical functions.
+SciPy: Used for its powerful optimization routines.
+Matplotlib: Used for the final visual verification by plotting the original data against the predicted curve.
+Differential Evolution Algorithm: SciPy’s Differential Evolution algorithm was used for global optimization due to its robustness in non-linear, non-convex problems.
+
+#References:- 
+
+1. Ahmad, M. F., Isa, N. A. M., Lim, W. H., & Vembar, R. S. (2022). Differential evolution: A recent review based on state-of-the-art works. Alexandria Engineering Journal, 61(5), 3831–3872.
+
+2. SciPy. `differential_evolution` – [Official Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html)
+
+3. MathWorks. Differential Evolution Overview – [https://www.mathworks.com/help/gads/differential-evolution.html](https://www.mathworks.com/help/gads/differential-evolution.html)
+
+
 
 
 
