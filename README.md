@@ -7,8 +7,9 @@ The goal of this task was to estimate unknown parameters in a given parametric e
 #Objective:-
 To determine the unknown parameters in the following equations:
 
-**x=\left(t*\cos(\theta)-e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta)\ +X \right )**
-**y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\right)**
+x=\left(t*\cos(\theta)-e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta)\ +X \right )
+y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\right)
+
 The optimisation is performed such that the mean L1 distance (Manhattan distance) between the predicted and observed coordinates is minimized.
 
 #Explanation & Steps :
@@ -33,14 +34,15 @@ The L1 metric was chosen intentionally, as per the rubric requirement, since it 
 
 For every predicted point, its L1 distance to all actual points was calculated, and only the minimum (closest) one was considered.
 The formula used:
-**\text{Error}_{\text{L1}} = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right)**[LaTeX format]
+\text{Loss}_{\text{L1}}
+ = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right) [LaTeX format]
 
 Step 4 – Defining the Model Equation
 
 Explanation:
 The given parametric equation was implemented in terms of 
-**x = t*\cos(\theta) - e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta) + X**
-**y = 42 + t*\sin(\theta) + e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)**
+x = t*\cos(\theta) - e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta) + X
+y = 42 + t*\sin(\theta) + e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)
 
 These equations were used inside the cost function to generate predicted x andy points for comparison with the dataset.
 
@@ -85,9 +87,9 @@ Final optimized result (submission-ready format):
 
 \left(t*\cos(0.523594)-e^{0.030001\left|t\right|}\cdot\sin(0.3t)\sin(0.523594)\ +54.998555,42+\ t*\sin(0.523594)+e^{0.030001\left|t\right|}\cdot\sin(0.3t)\cos(0.523594)\right)
 
-**θ = 0.523594**
-**M = 0.030001**
-**X = 54.998555**
+θ = 0.523594
+M = 0.030001
+X = 54.998555
 
 Desmos representation of the final result :
 https://www.desmos.com/calculator/3y9swdeuff
