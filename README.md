@@ -1,4 +1,4 @@
-**R&D/AI Assignment - Flam**
+## **R&D/AI Assignment - Flam**
 
 
 This repository contains my solution for the Research and Development / AI Assignment.
@@ -14,7 +14,7 @@ y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\ri
 
 The optimisation is performed such that the mean L1 distance (Manhattan distance) between the predicted and observed coordinates is minimized.
 
-##**Explanation & Steps :-**
+## **Explanation & Steps :-**
 Step 1 – Data Loading and Understanding
 
 The dataset xy_data.csv containing observed x and 𝑦 coordinates was loaded using Pandas.
@@ -91,7 +91,7 @@ Explanation:
 To verify correctness, the predicted curve (in red) and original data (in blue) were plotted using Matplotlib.
 A close visual overlap confirmed that the optimizer successfully minimized the L1 distance and captured the data pattern effectively.
 
-##**Results:-**
+## **Results:-**
 
 Final optimized result (submission-ready format):
 
@@ -107,7 +107,7 @@ Desmos representation of the final result :
 
 https://www.desmos.com/calculator/3y9swdeuff
 
-##**Tools:-**
+## **Tools:-**
 
 This solution was developed in Python and relies on several key open-source libraries and algorithms.
 
@@ -121,7 +121,7 @@ Matplotlib
 
 Differential Evolution Algorithm: SciPy’s Differential Evolution algorithm was used for global optimization due to its robustness in non-linear, non-convex problems.
 
-##**References:-** 
+## **References:-** 
 
 1. Ahmad, M. F., Isa, N. A. M., Lim, W. H., & Vembar, R. S. (2022). Differential evolution: A recent review based on state-of-the-art works. Alexandria Engineering Journal, 61(5), 3831–3872.
 
