@@ -9,6 +9,7 @@ The goal of this task was to estimate unknown parameters in a given parametric e
 To determine the unknown parameters in the following equations:
 
 x=\left(t*\cos(\theta)-e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta)\ +X \right )
+
 y = \left (42 + t*\sin(\theta)+e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)\right)
 
 The optimisation is performed such that the mean L1 distance (Manhattan distance) between the predicted and observed coordinates is minimized.
@@ -18,7 +19,7 @@ The optimisation is performed such that the mean L1 distance (Manhattan distance
 Step 1 – Data Loading and Understanding
 
 The dataset xy_data.csv containing observed x and 𝑦 coordinates was loaded using Pandas.
-It was verified for existence to prevent runtime errors.
+
 
 The loaded values were stored as arrays actual_x and actual_y, and combined into coordinate pairs (P_actual) for direct comparison with predicted curve points.
 
@@ -36,13 +37,12 @@ Step 3 – Formulating the Objective (Cost) Function
 Explanation:
 
 The optimization objective was to minimize the mean L1 distance between predicted and actual curve points.
-The L1 metric was chosen intentionally, as per the rubric requirement, since it is robust to outliers and directly measures absolute deviation.
+The L1 metric was chosen intentionally, since it is robust to outliers and directly measures absolute deviation.
 
 For every predicted point, its L1 distance to all actual points was calculated, and only the minimum (closest) one was considered.
 The formula used:
 
-\text{Loss}_{\text{L1}}
- = \frac{1}{N} \sum_{i=1}^{N} \left( \min_{1 \le j \le N} \left( |x_{\text{pred},i} - x_{\text{actual},j}| + |y_{\text{pred},i} - y_{\text{actual},j}| \right) \right) [LaTeX format]
+Loss_L1 = (1/N) * sum_{i=1 to N} ( min_{1 <= j <= N} ( |x_pred,i - x_actual,j| + |y_pred,i - y_actual,j| ) )
 
 Step 4 – Defining the Model Equation
 
@@ -51,6 +51,7 @@ Explanation:
 The given parametric equation was implemented in terms of 
 
 x = t*\cos(\theta) - e^{M\left|t\right|}\cdot\sin(0.3t)\sin(\theta) + X
+
 y = 42 + t*\sin(\theta) + e^{M\left|t\right|}\cdot\sin(0.3t)\cos(\theta)
 
 These equations were used inside the cost function to generate predicted x andy points for comparison with the dataset.
@@ -60,6 +61,7 @@ Step 5 – Optimization Technique
 Explanation:
 
 The Differential Evolution algorithm (from scipy.optimize) was chosen because it performs global optimization efficiently for nonlinear equations.
+
 It evolves multiple candidate solutions using mutation, recombination, and selection to minimize the cost function.
 
 The parameter search bounds were:
@@ -78,8 +80,7 @@ Explanation:
 
 The optimizer iteratively minimized the mean L1 distance.
 
-A population size of 10 and tolerance of 
-10^-4 were used for balanced accuracy and runtime.
+A population size of 10 and tolerance of 10^-4 were used for balanced accuracy and runtime.
 
 The algorithm displayed progress (disp=True) and returned the best-fit parameters once convergence was achieved.
 
@@ -87,11 +88,9 @@ Step 7 – Obtaining and Presenting Results
 
 Explanation:
 
-Upon successful optimization, the optimal values of unknowns θ,M,X were printed in both radians and degrees.
-The final minimized Mean L1 Distance was reported as the performance metric.
+Upon successful optimization, the optimal values of unknowns θ,M,X were printed in both radians and degrees
 
-The optimized equation was also automatically formatted into LaTeX for direct submission.
-
+The final minimized Mean L1 Distance and optimized equation was reported as the performance metric.
 
 Step 8 – Visualization and Verification
 
