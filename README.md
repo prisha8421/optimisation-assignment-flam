@@ -100,17 +100,17 @@ https://www.desmos.com/calculator/3y9swdeuff
 
 **Note:** The `xy_data.csv` file must be in the same directory as your script.
 
-### Option 1: Google Colab (Recommended)
+#**Option 1: Google Colab (Recommended)**
 
 1.  Open `optimisation.ipynb` in Google Colab.
 2.  Upload `xy_data.csv` to the Colab file browser and click **"Runtime" > "Run all"**.
 
-### Option 2: Local Python Script
+#**Option 2: Local Python Script**
 
 1.  In your terminal, navigate to the project folder and install dependencies: `pip install -r requirements.txt`
 2.  Run the script: `python optimisation.py`
 
-### Option 3: Local Jupyter Notebook
+#**Option 3: Local Jupyter Notebook**
 
 1.  Install dependencies: `pip install -r requirements.txt && pip install jupyter`
 2.  Run `jupyter notebook`, open `optimisation.ipynb` in your browser, and run all cells.
