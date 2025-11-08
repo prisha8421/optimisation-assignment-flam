@@ -24,9 +24,9 @@ try:
     actual_x = data['x'].values
     actual_y = data['y'].values
     P_actual = np.stack([actual_x, actual_y], axis=1)
-    print(f"✅ Successfully loaded {len(actual_x)} data points from {file_name}.")
+    print(f"Successfully loaded {len(actual_x)} data points from {file_name}.")
 except FileNotFoundError:
-    print(f"❌ ERROR: File '{file_name}' not found.")
+    print(f"ERROR: File '{file_name}' not found.")
     sys.exit()
 
 #t parameter definition
@@ -117,4 +117,4 @@ try:
     plt.show()
 
 except Exception as e:
-    print(f"\n Visualization skipped: {e}")
+    print(f"\n Visualisation skipped: {e}")
